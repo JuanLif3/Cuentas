@@ -16,7 +16,7 @@ export class AccountsController {
   // @Post() deocra este metodo par que se ejecute cuando llegue la peticion HTTP POST a la ruta bse '/accounts'
   // @Body() es un decorador de parametro que extrae el JSON del cuerpo de la peticion y lo convierte en nuestro DTO
   @Post()
-  create(@Body() createAccountDto: CreateAccountDto) {
+  async create(@Body() createAccountDto: CreateAccountDto) {
     // Llama al metodo 'create' de nuestro servicio, pasandole los datos validos por el DTO
     // Lo que retorne el servicio, se enviará automaticamente como respuesta JSON al cliente
     return this.accountsService.create(createAccountDto);
@@ -24,7 +24,7 @@ export class AccountsController {
 
   // @Get() decora este metodo para que se ejecute cuando llegue una peticion HTTP GET a la ruta base '/accounts'.
   @Get()
-  findAll() {
+  async findAll() {
     // LLama al metodo 'findAll' del servicio, que devuelve la lista de todas las cuentas
     return this.accountsService.findAll();
   }
